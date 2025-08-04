@@ -69,6 +69,7 @@ def main():
 
         # Download the video
         local_video_path = os.path.join("uploads", file_name)
+        os.makedirs(os.path.dirname(local_video_path), exist_ok=True)
         print(f"Downloading '{file_name}' to '{local_video_path}'...")
         if not google_drive.download_file(gdrive_service, file_id, local_video_path):
             print(f"Failed to download '{file_name}'. Skipping.")

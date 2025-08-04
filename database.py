@@ -33,8 +33,8 @@ def wait_if_needed():
     if last_upload_time:
         now = datetime.utcnow()
         elapsed = (now - last_upload_time).total_seconds()
-        if elapsed < 3600:
-            wait_time = 3600 - elapsed
+        if elapsed < 60:
+            wait_time = 60 - elapsed
             print(f"Last upload was at {last_upload_time.isoformat()} UTC")
             print(f"Waiting {int(wait_time/60)} minutes before next upload...")
             time.sleep(wait_time)

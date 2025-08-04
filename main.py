@@ -4,6 +4,7 @@ import database  # This should be your Supabase-based database module now
 import google_drive
 import instagram
 import time
+import base64
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -11,6 +12,13 @@ load_dotenv()
 GOOGLE_DRIVE_FOLDER_ID = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
 INSTAGRAM_USERNAME = os.getenv("INSTAGRAM_USERNAME")
 INSTAGRAM_PASSWORD = os.getenv("INSTAGRAM_PASSWORD")
+RAILWAY_GOOGLE_CREDENTIALS  = os.getenv("RAILWAY_GOOGLE_CREDENTIALS ")
+RAILWAY_GOOGLE_TOKEN = os.getenv("RAILWAY_GOOGLE_TOKEN")
+
+with open("credentials.json","wb") as f:
+    f.write(base64.b64decode(RAILWAY_GOOGLE_CREDENTIALS))
+with open("token.json","wb") as h:
+    h.write(base64.b64decode(RAILWAY_GOOGLE_TOKEN))
 
 def safe_delete(path, retries=3, delay=1):
     for _ in range(retries):

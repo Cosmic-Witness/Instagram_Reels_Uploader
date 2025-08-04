@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# Credentials
+token.json
+credentials.json
+
+# Database
+uploads.db
+
+# IDE files
+.idea/
+.vscode/
